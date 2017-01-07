@@ -13,6 +13,7 @@ import com.amazonaws.services.sqs.model.Message;
 import com.amazonaws.services.sqs.model.ReceiveMessageRequest;
 import com.amazonaws.services.sqs.model.ReceiveMessageResult;
 import com.amazonaws.services.sqs.model.SendMessageRequest;
+import com.amazonaws.services.sqs.model.SendMessageResult;
 import com.google.inject.AbstractModule;
 
 import play.Configuration;
@@ -68,16 +69,20 @@ public class AWSSQSModule extends AbstractModule {
 		}
 	}
 
-	public static void sendMessage(String queueUrl, String message) {
+	public static String sendMessage(String queueUrl, String message) {
+		SendMessageResult sendMessageResult= null;
+		String messageId = null;
 		if (queueUrl != null) {
 			SendMessageRequest sendMsgReq = new SendMessageRequest(queueUrl, message);
 			if(client != null) {
-				client.sendMessage(sendMsgReq);
+				sendMessageResult =client.sendMessage(sendMsgReq);
+				messageId = sendMessageResult.getMessageId();
 			}
 			else {
 				throw new RuntimeException ("Missing AWS SQS Connection client.");
 			}
 		}
+		return messageId;
 	}
 
 	public static List<Message> receiveMessages(String queueUrl, int maxNumberOfMessages) {
