@@ -16,6 +16,6 @@ public class TestController extends Controller {
 	}
 
 	public Result sendSQSMessage(String message) {
-		return ok("It works! sent message ID = " + awsService.sendMessage(message));
+		return ok("It works! sent message ID = " + awsService.sendSQSMessage(message));
 	}
 }

@@ -16,7 +16,7 @@ public class AWSService {
 		this.configuration = configuration;
 	}
 
-	public String sendMessage(String message) {
+	public String sendSQSMessage(String message) {
 		String queueUrl = configuration.getString(AWS_SQS_QUEUE_URL_KEY);
 		Logger.info(this.getClass() + " sendMessage queueUrl = " + queueUrl);
 		return AWSSQSModule.sendMessage(queueUrl, message);

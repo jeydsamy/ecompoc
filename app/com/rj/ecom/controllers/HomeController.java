@@ -54,7 +54,7 @@ public class HomeController extends Controller {
 		  toSQS.put("action", "Add");
 		  toSQS.put("qty", 1);
 		  String tex = toSQS.toString();
-		  awsService.sendMessage(tex);
+		  awsService.sendSQSMessage(tex);
 		  
 		ObjectNode result = Json.newObject();
 	    result.put("message", "Order Placed Successfully...productId:" + productId);
