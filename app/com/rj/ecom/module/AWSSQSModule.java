@@ -21,14 +21,11 @@ import play.Environment;
 import play.inject.ApplicationLifecycle;
 import play.Logger;
 
-public class AWSSQSModule extends AbstractModule {
+public class AWSSQSModule extends AbstractModule implements AWSModule {
 
 	private Configuration configuration;
 	@SuppressWarnings("unused")
 	private Environment environment;
-
-	public static final String AWS_ACCESS_KEY = "aws.access.key";
-	public static final String AWS_SECRET_KEY = "aws.secret.key";
 
 	private static AmazonSQSClient client;
 

@@ -18,7 +18,8 @@ libraryDependencies ++= Seq(
   	javaJpa,
     javaWs,
   	"org.hibernate" % "hibernate-entitymanager" % "5.1.0.Final",// replace by your jpa implementation
-    "com.amazonaws" % "aws-java-sdk" % "1.11.76"
+    "com.amazonaws" % "aws-java-sdk" % "1.11.76",
+     "javax.mail" % "mail" % "1.4.3"
 )
 
 javaOptions in Test ++= Seq(
