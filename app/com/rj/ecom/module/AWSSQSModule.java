@@ -24,6 +24,7 @@ import play.Logger;
 public class AWSSQSModule extends AbstractModule {
 
 	private Configuration configuration;
+	@SuppressWarnings("unused")
 	private Environment environment;
 
 	public static final String AWS_ACCESS_KEY = "aws.access.key";
