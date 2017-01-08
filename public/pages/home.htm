@@ -1,0 +1,19 @@
+<div style="margin-top:20px;padding:50px 50px">
+	<div class="page-header">
+	  <h1>Products List</h1>
+	</div>
+	<div class="panel panel-info list-panel-border" ng-repeat="product in products">
+        <div class="panel-primary">
+            <div class="panel-heading">
+                {{product.productName}}
+                <span class="badge">${{product.originalPrice}}</span>
+            </div>
+            <div class="panel-body">
+                {{product.description}}
+                <button type="button" ng-click="placeOrder(product.productId)" class="btn btn-danger" style="padding:2px 15px;margin:5px 50px">Order</button>
+                <div ng-if="product.productId == orderedProductId" style="color:green">
+                	{{orderConfirmation}}
+                </div>
+            </div>
+        </div>
+</div>

@@ -5,6 +5,9 @@
 # An example controller showing a sample home page
 GET     /                           com.rj.ecom.controllers.HomeController.index
 
+GET		/product/list				com.rj.ecom.controllers.HomeController.productsList
+GET		/product/placeOrder/:productId		com.rj.ecom.controllers.HomeController.placeOrder(productId)
+
 #SQS Test
 GET   /tesSqsSend/:message 					com.rj.ecom.controllers.TestController.sendSQSMessage(message: String)
 
@@ -15,3 +18,5 @@ GET     /message                    com.rj.ecom.controllers.AsyncController.mess
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
+
+GET		/home       				controllers.Assets.at(path="/public", file ="index.html")

@@ -3,7 +3,7 @@
  * This template takes a single argument, a String containing a
  * message to display.
  *@
-@(message: String, products: List[ProductCatalog])
+@(message: String)
 
 @*
  * Call the `main` template with two arguments. The first
@@ -12,11 +12,11 @@
  *@
 @main("ECom POC") {
 	
-	@for(product <- products) {
-	  <li>@product.getProductName()</li>
-	  <li>@product.getOriginalPrice()</li>
-	}
-    
+    @*
+     * Get an `Html` object by calling the built-in Play welcome
+     * template and passing a `String` message.
+     *@
+    @play20.welcome(message, style = "Java")
 	<ul>
 	
 	</ul>
