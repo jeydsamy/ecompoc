@@ -41,7 +41,9 @@ public class BaseDAOImpl<T> implements BaseDAO<T>{
 	public void delete(T obj) {
 		getEntityManager().remove(obj);
 	}
-
+	/**
+	 * Finds by object id
+	 */
 	public T findById(long id, Class className){
 		    return (T) getEntityManager().find(className, id);
 	}
